@@ -11,10 +11,10 @@ image:
 
 service:
   type: ClusterIP
-  port: 8080          # http port（service & container share）
-  grpcPort: 5001      # grpc port
+  port: 8080          # http 端口（service & container 共用）
+  grpcPort: 5001      # grpc 端口
 
-# probe path and timing
+# 探针路径与节奏
 livenessProbe:
   path: /user-ms/v1/ping
   initialDelaySeconds: 10
@@ -32,7 +32,7 @@ resources:
     cpu: 100m
     memory: 128Mi
 
-# volume configuration
+# 卷配置
 volumes:
   configMapName: user-ms-config   
   logPath: /tmp/logs/user-ms      

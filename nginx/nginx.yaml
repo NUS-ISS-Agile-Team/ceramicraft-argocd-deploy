@@ -28,6 +28,6 @@ spec:
   ports:
   - port: 80
     targetPort: 80
-    nodePort: 30090     
+    nodePort: 30090          # 30000-32767 范围内即可
   selector:
     app: nginx-web

@@ -19,7 +19,7 @@ data:
       file_path: ./logs/ceramicraft-user-mservice.log
 
     mysql:
-      host: "10.43.47.162"
+      host: "172.31.5.184"
       port: "3306"
       userName: "root"
       dbName: "user_db"
