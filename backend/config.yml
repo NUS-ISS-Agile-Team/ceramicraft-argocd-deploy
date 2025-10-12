@@ -1,0 +1,31 @@
+grpc:
+  host: "0.0.0.0"
+  port: 5001
+  connect_timeout: 3
+  max_pool_size: 200
+
+http:
+  host: "0.0.0.0"
+  port: 8080
+
+log:
+  level: debug
+  file_path: ./logs/ceramicraft-user-mservice.log
+
+mysql:
+  host: "10.43.47.162"
+  port: "3306"
+  userName: "root"
+  dbName: "user_db"
+
+email:
+  smtp_host: "smtp.qq.com"
+
+kafka:
+  brokers: ["10.249.71.29:9092"]
+  user_activated_topic: "user-activated"
+  max_bytes: 1048576
+  acks: 1
+  retries: 3
+  batch_timeout_millis: 5
+  batch_size: 16384

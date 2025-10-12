@@ -1,0 +1,105 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-ms
+  namespace: default        # change if you use a different NS
+  labels:
+    app: user-ms
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-ms
+  template:
+    metadata:
+      labels:
+        app: user-ms
+    spec:
+      initContainers:
+      - name: fix-perm
+        image: busybox:1.36
+        command: [ 'sh', '-c', 'chmod 777 /app/logs' ]
+        volumeMounts:
+        - name: applogs
+          mountPath: /app/logs
+      containers:
+        - name: user-ms
+          image: lian1280/user-ms:debug-1.0.3
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - name: config
+              mountPath: /app/resources
+              readOnly: true
+            - name: applogs
+              mountPath: /app/logs 
+              
+          ports:
+            - name: http
+              containerPort: 8080
+            - name: grpc
+              containerPort: 5001
+          livenessProbe:
+            httpGet:
+              path: /user-ms/v1/ping
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /user-ms/v1/ping
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 5
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "50m"
+            limits:
+              memory: "128Mi"
+              cpu: "100m"
+          env:
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: ms-secret
+                  key: MYSQL_PASSWORD
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: ms-secret
+                  key: JWT_SECRET
+            - name: SMTP_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: ms-secret
+                  key: SMTP_PASSWORD
+            - name: SMTP_EMAIL_FROM
+              valueFrom:
+                secretKeyRef:
+                  name: ms-secret
+                  key: SMTP_EMAIL_FROM
+      volumes:
+        - name: config
+          configMap:
+            name: user-ms-config
+        - name: applogs
+          hostPath:
+            path: /tmp/logs/user-ms
+            type: DirectoryOrCreate
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: user-ms-svc
+  namespace: default
+spec:
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+    - name: grpc
+      port: 5001
+      targetPort: 5001
+  selector:
+    app: user-ms
