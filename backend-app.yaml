@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/NUS-ISS-Agile-Team/ceramicraft-argocd-deploy.git
     targetRevision: HEAD
-    path: backend
+    path: helm_backend
   destination:
     server: https://kubernetes.default.svc
     namespace: default

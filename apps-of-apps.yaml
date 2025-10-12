@@ -8,10 +8,10 @@ spec:
   source:
     repoURL: https://github.com/NUS-ISS-Agile-Team/ceramicraft-argocd-deploy.git
     targetRevision: HEAD
-    path: .                          # 扫描根目录
+    path: .                         
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd                # 子 Application 也放 argocd
+    namespace: argocd              
   syncPolicy:
     automated:
       prune: true

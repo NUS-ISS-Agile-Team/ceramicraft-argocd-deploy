@@ -1,14 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nginx
+  name: user-ms-dev
   namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
-    repoURL: https://github.com/NUS-ISS-Agile-Team/ceramicraft-argocd-deploy.git
+    repoURL: https://github.com/lianjin/git-ops.git
     targetRevision: HEAD
-    path: nginx        
+    path: charts
+    helm:
+      valueFiles:
+        -  ../helm_backend/values/user-ms.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: default
@@ -16,3 +21,5 @@ spec:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

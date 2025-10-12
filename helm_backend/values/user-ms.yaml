@@ -1,0 +1,32 @@
+replicaCount: 1
+
+image:
+  repository: lian1280/user-ms
+  tag: debug-1.0.3
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8080         
+  grpcPort: 5001
+
+livenessProbe:
+  path: /user-ms/v1/ping
+  initialDelaySeconds: 10
+  periodSeconds: 5
+readinessProbe:
+  path: /user-ms/v1/ping
+  initialDelaySeconds: 10
+  periodSeconds: 5
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 64Mi
+  limits:
+    cpu: 100m
+    memory: 128Mi
+
+volumes:
+  configMapName: user-ms-config
+  logPath: /tmp/logs/user-ms
