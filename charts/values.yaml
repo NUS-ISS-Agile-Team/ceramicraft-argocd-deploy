@@ -1,0 +1,38 @@
+# ===================================
+# microservice default values
+# ===================================
+
+replicaCount: 1
+
+image:
+  repository: lian1280/user-ms
+  tag: debug-1.0.3
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8080          # http 端口（service & container 共用）
+  grpcPort: 5001      # grpc 端口
+
+# 探针路径与节奏
+livenessProbe:
+  path: /user-ms/v1/ping
+  initialDelaySeconds: 10
+  periodSeconds: 5
+readinessProbe:
+  path: /user-ms/v1/ping
+  initialDelaySeconds: 10
+  periodSeconds: 5
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 64Mi
+  limits:
+    cpu: 100m
+    memory: 128Mi
+
+# 卷配置
+volumes:
+  configMapName: user-ms-config   
+  logPath: /tmp/logs/user-ms      
