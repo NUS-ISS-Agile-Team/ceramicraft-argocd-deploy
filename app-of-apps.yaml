@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/lianjin/git-ops.git
+    repoURL: https://github.com/NUS-ISS-Agile-Team/ceramicraft-argocd-deploy.git
     targetRevision: HEAD
     path: bootstrap
   destination:
@@ -28,7 +28,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/lianjin/git-ops.git
+    repoURL: https://github.com/NUS-ISS-Agile-Team/ceramicraft-argocd-deploy.git
     targetRevision: HEAD
     path: nginx
   destination:
@@ -51,7 +51,7 @@ spec:
   goTemplate: true
   generators:
     - git:
-        repoURL: https://github.com/lianjin/git-ops.git
+        repoURL: https://github.com/NUS-ISS-Agile-Team/ceramicraft-argocd-deploy.git
         revision: HEAD
         directories:
           - path: helm_backend/*
@@ -60,7 +60,7 @@ spec:
       name: '{{.path.basename}}'
       project: default
       source:
-        repoURL: https://github.com/lianjin/git-ops.git
+        repoURL: https://github.com/NUS-ISS-Agile-Team/ceramicraft-argocd-deploy.git
         targetRevision: HEAD
         path: charts                 
         helm:
@@ -86,7 +86,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/lianjin/git-ops.git
+    repoURL: https://github.com/NUS-ISS-Agile-Team/ceramicraft-argocd-deploy.git
     targetRevision: HEAD
     path: backend
   destination:
