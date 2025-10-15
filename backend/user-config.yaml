@@ -29,7 +29,7 @@ data:
 
     kafka:
       brokers: 
-        - "10.43.47.162:9092"
+        - "172.31.5.184:9092"
       user_activated_topic: "user-activated"
       max_bytes: 1048576
       acks: 1
