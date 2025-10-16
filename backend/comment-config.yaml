@@ -19,7 +19,7 @@ data:
       file_path: ./logs/ceramicraft-comment-mservice.log
 
     mysql:
-      host: "172.31.5.184
+      host: "172.31.5.184"
       port: "3306"
       userName: "root"
       dbName: "comment_db"
