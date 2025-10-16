@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: lian1280/ceramicraft-user-mservice
+  repository: lian1280/ceramicraft-payment-mservice
   tag: latest
   pullPolicy: IfNotPresent
 
@@ -11,11 +11,11 @@ service:
   grpcPort: 5001
 
 livenessProbe:
-  path: /user-ms/v1/ping
+  path: /payment-ms/v1/ping
   initialDelaySeconds: 10
   periodSeconds: 5
 readinessProbe:
-  path: /user-ms/v1/ping
+  path: /payment-ms/v1/ping
   initialDelaySeconds: 10
   periodSeconds: 5
 
@@ -28,5 +28,5 @@ resources:
     memory: 128Mi
 
 volumes:
-  configMapName: user-ms-config
-  logPath: /tmp/logs/user-ms
+  configMapName: payment-ms-config
+  logPath: /tmp/logs/payment-ms
