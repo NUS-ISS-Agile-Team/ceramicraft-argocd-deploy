@@ -11,11 +11,11 @@ service:
   grpcPort: 5001
 
 livenessProbe:
-  path: /commodity-ms/v1/ping
+  path: /product-ms/v1/ping
   initialDelaySeconds: 10
   periodSeconds: 5
 readinessProbe:
-  path: /commodity-ms/v1/ping
+  path: /product-ms/v1/ping
   initialDelaySeconds: 10
   periodSeconds: 5
 
