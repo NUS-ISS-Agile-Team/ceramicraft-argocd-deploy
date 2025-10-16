@@ -19,16 +19,16 @@ data:
       file_path: ./logs/ceramicraft-comment-mservice.log
 
     mysql:
-      host: "mysql-container"
+      host: "172.31.5.184
       port: "3306"
       userName: "root"
       dbName: "comment_db"
 
     mongo:
-      host: "mongo-container"
+      host: "172.31.5.184"
       port: "27017"
       database: "comment_db"
 
     redis:
-      host: "redis-container"
-      port: 6379
+      host: "172.31.5.184"
+      port: "6379"

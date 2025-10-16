@@ -19,19 +19,19 @@ data:
       file_path: ./logs/ceramicraft-order-mservice.log
 
     mysql:
-      host: "mysql-container"
+      host: "172.31.5.184"
       port: "3306"
       userName: "root"
       dbName: "order_db"
 
     commodityClient:
-      host: "ceramicraft-commodity-mservice"
+      host: "commodity-ms-svc.default.svc.cluster.local"
       port: 5001
 
     paymentClient:
-      host: "ceramicraft-payment-mservice"
+      host: "payment-ms-svc.default.svc.cluster.local"
       port: 5001
 
     kafka:
-      host: "kafka-container"
+      host: "172.31.5.184"
       port: 9092

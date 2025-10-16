@@ -19,7 +19,7 @@ data:
       file_path: ./logs/ceramicraft-commodity-mservice.log
 
     mysql:
-      host:  "mysql-container" # mysql-container 127.0.0.1
+      host:  "172.31.5.184" # mysql-container 127.0.0.1
       port: "3306"
       userName: "root"
       dbName: "product_db"
@@ -29,7 +29,7 @@ data:
       region: "ap-southeast-1"
 
     kafka:
-      brokers: ["kafka-container:9092"]
+      brokers: ["172.31.5.184:9092"]
       group_id: "ceramicraft-product-group"
       max_bytes: 10485760
       commit_interval: 0
