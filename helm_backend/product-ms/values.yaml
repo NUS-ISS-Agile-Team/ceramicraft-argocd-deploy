@@ -28,5 +28,5 @@ resources:
     memory: 128Mi
 
 volumes:
-  configMapName: commodity-ms-config
-  logPath: /tmp/logs/commodity-ms
+  configMapName: product-ms-config
+  logPath: /tmp/logs/product-ms

@@ -1,7 +1,7 @@
 set $user_be       "http://user-ms-svc.default.svc.cluster.local:8080";
 set $payment_be    "http://payment-ms-svc.default.svc.cluster.local:8080";
 set $order_be      "http://order-ms-svc.default.svc.cluster.local:8080";
-set $product_be    "http://commodity-ms-svc.default.svc.cluster.local:8080";
+set $product_be    "http://product-ms-svc.default.svc.cluster.local:8080";
 set $comment_be    "http://comment-ms-svc.default.svc.cluster.local:8080";
 
 location ~* ^/(user-ms|api/user-ms)/ {

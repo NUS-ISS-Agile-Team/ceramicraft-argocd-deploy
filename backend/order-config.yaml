@@ -25,7 +25,7 @@ data:
       dbName: "order_db"
 
     commodityClient:
-      host: "commodity-ms-svc.default.svc.cluster.local"
+      host: "product-ms-svc.default.svc.cluster.local"
       port: 5001
 
     paymentClient:
