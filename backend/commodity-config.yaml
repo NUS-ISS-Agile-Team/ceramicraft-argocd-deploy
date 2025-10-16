@@ -29,7 +29,7 @@ data:
       region: "ap-southeast-1"
 
     kafka:
-      brokers: ["172.31.5.184:9092"]
+      brokers: ["10.43.222.212:9092"]
       group_id: "ceramicraft-product-group"
       max_bytes: 10485760
       commit_interval: 0
