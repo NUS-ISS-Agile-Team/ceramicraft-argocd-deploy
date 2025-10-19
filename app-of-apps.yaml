@@ -52,7 +52,7 @@ spec:
   generators:
     - git:
         repoURL: https://github.com/NUS-ISS-Agile-Team/ceramicraft-argocd-deploy.git
-        revision: CS-35-K3S-Autoscaler
+        revision: HEAD
         directories:
           - path: helm_backend/*
   template:
@@ -63,7 +63,7 @@ spec:
       project: default
       source:
         repoURL: https://github.com/NUS-ISS-Agile-Team/ceramicraft-argocd-deploy.git
-        targetRevision: CS-35-K3S-Autoscaler
+        targetRevision: HEAD
         path: charts                 
         helm:
           valueFiles:
@@ -89,7 +89,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/NUS-ISS-Agile-Team/ceramicraft-argocd-deploy.git
-    targetRevision: CS-35-K3S-Autoscaler
+    targetRevision: HEAD
     path: backend
   destination:
     server: https://kubernetes.default.svc
