@@ -8,5 +8,5 @@ spec:
     spec:
       containers:
       - name: merchant-frontend
-        image: lian1280/ceramicraft-merchant-frontend:v3.0.0
+        image: lian1280/ceramicraft-merchant-frontend:latest
      
