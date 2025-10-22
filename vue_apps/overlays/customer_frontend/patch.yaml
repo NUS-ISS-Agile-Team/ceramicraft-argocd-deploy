@@ -8,4 +8,4 @@ spec:
     spec:
       containers:
       - name: customer-frontend
-        image: lian1280/ceramicraft-customer-frontend:vtest
+        image: lian1280/ceramicraft-customer-frontend:latest
